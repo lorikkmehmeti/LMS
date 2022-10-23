@@ -1,0 +1,49 @@
+{
+  "name": "lms",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "npx prettier --write",
+    "dev": "vite --open --host",
+    "cleanup": "npx prettier --write . && eslint .",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "@radix-ui/react-avatar": "^1.0.1",
+    "@vanilla-extract/css": "^1.9.1",
+    "@vanilla-extract/css-utils": "^0.1.2",
+    "@vanilla-extract/dynamic": "^2.0.2",
+    "@vanilla-extract/recipes": "^0.2.5",
+    "@vanilla-extract/sprinkles": "^1.5.0",
+    "@vanilla-extract/vite-plugin": "^3.6.1",
+    "polished": "^4.2.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/builder-vite": "^0.2.4",
+    "@storybook/react": "^6.5.12",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "@vitejs/plugin-react": "^2.1.0",
+    "babel-loader": "^8.2.5",
+    "eslint": "^8.25.0",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-storybook": "^0.6.6",
+    "prettier": "2.7.1",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0"
+  }
+}
