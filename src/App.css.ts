@@ -1,4 +1,4 @@
-import { globalFontFace, globalStyle } from "@vanilla-extract/css";
+import { globalFontFace, globalStyle, style } from "@vanilla-extract/css";
 import { themes } from "./styles/theme";
 
 const inter = "Inter";
@@ -26,4 +26,26 @@ globalStyle("#root, .App, ._container", {
 });
 globalStyle(".App, body, html, #root, ._container", {
   background: themes.tokens.colors.background,
+});
+
+export const StyledToggle = style({
+  all: "unset",
+  backgroundColor: "white",
+  color: "black",
+  height: 20,
+  width: 20,
+  borderRadius: 4,
+  display: "flex",
+  fontSize: 15,
+  lineHeight: 1,
+  alignItems: "center",
+  justifyContent: "center",
+  selectors: {
+    "&:hover": { backgroundColor: "violet" },
+    "&[data-state=on]": {
+      backgroundColor: "darkviolet",
+      color: "black",
+    },
+    "&:focus": { boxShadow: `0 0 0 2px black` },
+  },
 });

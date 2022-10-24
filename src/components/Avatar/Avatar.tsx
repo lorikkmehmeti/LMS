@@ -1,5 +1,5 @@
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
-import React from "react";
+import React, { forwardRef } from "react";
 import { StyledImage, StyledFallback, StyledRoot, Size } from "./Avatar.css";
 import { getInitials } from "../../utils/util";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
@@ -14,10 +14,11 @@ interface AvatarProps {
   size: number;
 }
 
-function Avatar(props: AvatarProps) {
+const Avatar = forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
   const { name, size, image } = props;
   return (
     <AvatarWrapper
+      ref={ref}
       className={StyledRoot}
       style={assignInlineVars({ [Size]: "" + size })}
     >
@@ -27,6 +28,8 @@ function Avatar(props: AvatarProps) {
       </AvatarFallback>
     </AvatarWrapper>
   );
-}
+});
+
+Avatar.displayName = "Avatar";
 
 export default Avatar;

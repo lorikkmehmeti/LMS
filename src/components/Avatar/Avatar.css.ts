@@ -1,5 +1,4 @@
 import { createVar, style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
 import { calc } from "@vanilla-extract/css-utils";
 import { FONT_VARIATIONS } from "../../styles/theme/tokens";
 
@@ -40,19 +39,19 @@ const StyledRoot = style({
   alignItems: "center",
   justifyContent: "center",
   verticalAlign: "middle",
-  overflow: "hidden",
   userSelect: "none",
   borderRadius: "100%",
   width: calc(Size).multiply("4px").toString(),
   height: calc(Size).multiply("4px").toString(),
   background: "#8fabb5",
+  position: "relative",
 });
 
 const StyledImage = style({
   width: "100%",
   height: "100%",
   objectFit: "cover",
-  borderRadius: "inherit",
+  borderRadius: "100%",
   boxShadow: "0 0 0 1px inset rgba(255,255,255, .1)",
 });
 
@@ -68,6 +67,7 @@ const StyledFallback = style({
   lineHeight: 1,
   fontWeight: FONT_VARIATIONS.BOLD,
   fontVariationSettings: `'wght' ${FONT_VARIATIONS.BOLD}`,
+  borderRadius: "100%",
 });
 
 export { StyledRoot, StyledImage, StyledFallback, Size };

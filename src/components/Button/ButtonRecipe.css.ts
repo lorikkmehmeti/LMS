@@ -4,6 +4,7 @@ import { FONT_VARIATIONS } from "../../styles/theme/tokens";
 
 export const RButton = recipe({
   base: {
+    whiteSpace: "nowrap",
     borderRadius: 6,
     border: "none",
     fontWeight: `${FONT_VARIATIONS.NORMAL}`,

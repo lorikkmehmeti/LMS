@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { RButton } from "./ButtonRecipe.css";
 
 export interface ButtonProps
@@ -10,19 +10,25 @@ export interface ButtonProps
   disabled?: boolean;
   space?: "inline" | "block" | "top" | "bottom" | "right" | "left" | "none";
   props?: React.ComponentPropsWithoutRef<"button">;
+  ref?: React.Ref<HTMLButtonElement>;
 }
 
-export default function Button(props: ButtonProps) {
-  const { children, size, color, space, rounded, disabled } = props;
-
-  return (
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref) => (
     <button
+      ref={ref}
       {...props}
-      className={RButton({ size, color, space, rounded })}
-      aria-disabled={disabled}
-      disabled={disabled}
+      className={RButton({
+        size: props.size,
+        color: props.color,
+        space: props.space,
+        rounded: props.rounded,
+      })}
+      aria-disabled={props.disabled}
+      disabled={props.disabled}
     >
-      {children}
+      {props.children}
     </button>
-  );
-}
+  )
+);
+Button.displayName = "Button";
