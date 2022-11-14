@@ -1,4 +1,4 @@
-import "./App.css.ts";
+import React from "react";
 import { sprinkles } from "./styles/utilities/utility-styles.css";
 import { Button } from "./components/Button/Button";
 import ThemeProvider from "./providers/theme-provider";
@@ -6,55 +6,63 @@ import Text from "./components/global/Text/Text";
 import Avatar from "./components/Avatar/Avatar";
 import { IMAGES } from "./utils/constants";
 import {
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
   DropdownMenu,
-  DropdownMenuSubContent,
-  RightSlot,
-  DropdownMenuSubTrigger,
-  DropdownMenuSub,
-  DropdownMenuItemIndicator,
   DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuItemIndicator,
   DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+  RightSlot,
 } from "./components/DropdownMenu/DropdownMenu";
 import * as TogglePrimitive from "@radix-ui/react-toggle";
 import { StyledToggle } from "./App.css";
 import { DepartamentLine } from "./utils/Icons";
+import { Radio, RadioGroup } from "./components/Radio/Radio";
+import "./App.css.ts";
 
 export const Toggle = TogglePrimitive.Root;
 
 export default function App() {
-  // const [count, setCount] = useState(0);
   return (
     <ThemeProvider>
       <div
         className={`App ${sprinkles({
           fontFamily: "body",
+          padding: {
+            desktop: 6,
+            computer: 5,
+            tablet: 3,
+            mobile: 1,
+          },
         })}`}
       >
-        <div
-          className={sprinkles({
-            padding: {
-              desktop: 6,
-              computer: 5,
-              tablet: 3,
-              mobile: 1,
-            },
-          })}
-        >
+        <div className={""}>
           <Button size="small" color="ghost">
-            Cancel
+            Learn more
           </Button>
           <Button size="small" color="secondary">
-            Save the draft
+            Next step
           </Button>
           <Button size="small" color="primary">
-            Confirm stake
+            Sign in
           </Button>
           <Text key={1} as="h1">
             Heading Texts
           </Text>
+          <div>
+            <RadioGroup
+              defaultValue={"Lorik Mehmeti"}
+              aria-label="View density"
+            >
+              {["Publish", "Unpublish", "Set the publish date"].map((el) => (
+                <Radio key={el} label={el} value={el} />
+              ))}
+            </RadioGroup>
+          </div>
           <div style={{ display: "flex", gap: 10 }}>
             <Avatar name="Lorik Mehmeti" image={IMAGES[23]} size={13} />
             <Avatar

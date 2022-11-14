@@ -1,5 +1,6 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useContext } from "react";
 import { RButton } from "./ButtonRecipe.css";
+import { ColorModeContext } from "../../providers/theme-provider";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,21 +15,25 @@ export interface ButtonProps
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => (
-    <button
-      ref={ref}
-      {...props}
-      className={RButton({
-        size: props.size,
-        color: props.color,
-        space: props.space,
-        rounded: props.rounded,
-      })}
-      aria-disabled={props.disabled}
-      disabled={props.disabled}
-    >
-      {props.children}
-    </button>
-  )
+  (props, ref) => {
+    const { colorMode, setColorMode } = useContext(ColorModeContext);
+    return (
+      <button
+        ref={ref}
+        {...props}
+        onClick={() => setColorMode(colorMode === "light" ? "dark" : "light")}
+        className={RButton({
+          size: props.size,
+          color: props.color,
+          space: props.space,
+          rounded: props.rounded,
+        })}
+        aria-disabled={props.disabled}
+        disabled={props.disabled}
+      >
+        {props.children}
+      </button>
+    );
+  }
 );
 Button.displayName = "Button";

@@ -1,10 +1,16 @@
 import { globalFontFace, globalStyle, style } from "@vanilla-extract/css";
 import { themes } from "./styles/theme";
+import { vars } from "./styles/utilities/variables.css";
 
 const inter = "Inter";
+const Aspekta = "Aspekta Variable";
 
 globalFontFace(inter, {
   src: 'url("/Inter.ttf")',
+  fontDisplay: "swap",
+});
+globalFontFace(Aspekta, {
+  src: 'url("/AspektaVF.woff2")',
   fontDisplay: "swap",
 });
 
@@ -12,20 +18,30 @@ globalStyle("html, body", {
   margin: 0,
   padding: 0,
   height: "100%",
-  color: themes.tokens.colors.text,
+  color: themes.tokens.colors.text_primary,
 });
 globalStyle("*, *::before, *::after", {
   margin: 0,
   boxSizing: "border-box",
   color: "currentColor",
 });
-globalStyle("*", { fontFamily: "Inter" });
+globalStyle("*", { fontFamily: "Aspekta Variable" });
+
 globalStyle("#root, .App, ._container", {
   height: "100%",
-  color: themes.tokens.colors.text,
+  color: themes.tokens.colors.text_primary,
 });
-globalStyle(".App, body, html, #root, ._container", {
-  background: themes.tokens.colors.background,
+
+// Background color for dark mode
+globalStyle(".dark", {
+  background: vars.bg.black,
+  height: "100%",
+});
+
+// Background color
+globalStyle("html", {
+  background: vars.bg.white,
+  height: "100%",
 });
 
 export const StyledToggle = style({

@@ -2,33 +2,6 @@ import { createVar, style } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { FONT_VARIATIONS } from "../../styles/theme/tokens";
 
-// const StyledRootRecipe = recipe({
-//   base: {
-//     display: "inline-flex",
-//     alignItems: "center",
-//     justifyContent: "center",
-//     verticalAlign: "middle",
-//     overflow: "hidden",
-//     userSelect: "none",
-//     borderRadius: "100%",
-//     width: 32,
-//     height: 32,
-//   },
-//
-//   variants: {
-//     size: {
-//       small: { width: 32, height: 32 },
-//       default: { width: 48, height: 48 },
-//       medium: { width: 64, height: 64 },
-//       large: { width: 128, height: 128 },
-//     },
-//   },
-//
-//   defaultVariants: {
-//     size: "default",
-//   },
-// });
-
 const Size = createVar();
 
 const StyledRoot = style({
@@ -64,8 +37,8 @@ const StyledFallback = style({
   backgroundColor: "#a9fba0",
   color: "BLACK",
   fontSize: calc(Size).multiply("4px").divide(2.5).toString(),
-  lineHeight: 1,
-  fontWeight: FONT_VARIATIONS.BOLD,
+  lineHeight: 1.5,
+  fontWeight: FONT_VARIATIONS.MEDIUM,
   fontVariationSettings: `'wght' ${FONT_VARIATIONS.BOLD}`,
   borderRadius: "100%",
 });

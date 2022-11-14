@@ -1,44 +1,48 @@
 // import {ThemeContext, ThemeNames} from "./theme";
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { base, themes } from "../styles/theme";
 
-/* eslint-disable-next-line */
-export interface ThemeProviderProps {}
+type ColorMode = "dark" | "light";
+export const themeKey = "vanilla-theme-pref";
 
-// TODO change location to model folder
-export type ThemeNames = "light" | "dark";
-// TODO change location to model folder
-export type ThemeContextValue = {
-  theme?: ThemeNames;
-  toggleTheme?: () => void;
-};
+interface ColorModeContextValues {
+  colorMode: ColorMode | null;
+  setColorMode: (colorMode: ColorMode) => void;
+}
 
-export const ThemeContext = createContext<ThemeContextValue>({
-  theme: "light",
+export const ColorModeContext = createContext<ColorModeContextValues>({
+  colorMode: null,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setColorMode: () => {},
 });
 
-export function ThemeProvider({
-  children,
-}: React.PropsWithChildren<ThemeProviderProps>) {
-  const [theme, setTheme] = useState<ThemeNames>("dark");
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [colorMode, setColorMode] = useState<ColorMode | null>("dark");
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const toggleTheme = () => {
-    setTheme((prevValue) => (prevValue === "light" ? "dark" : "light"));
+  useEffect(() => {
+    document.documentElement.classList.remove("light", "dark");
+    if (colorMode) {
+      document.documentElement.classList.add(colorMode);
+    }
+  }, []);
+
+  const setter = (c: ColorMode) => {
+    setColorMode(c);
+
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(c);
   };
 
-  const colorMode = theme === "light" ? themes.light : themes.dark;
+  const theme = colorMode === "light" ? themes.light : themes.dark;
   return (
-    <ThemeContext.Provider
+    <ColorModeContext.Provider
       value={{
-        theme: theme,
-        toggleTheme: () => {
-          setTheme((prevValue) => (prevValue === "light" ? "dark" : "light"));
-        },
+        colorMode,
+        setColorMode: setter,
       }}
     >
-      <div className={`${base.class} ${colorMode} _container`}>{children}</div>
-    </ThemeContext.Provider>
+      <div className={`${base.class} ${theme} _container`}>{children}</div>
+    </ColorModeContext.Provider>
   );
 }
 

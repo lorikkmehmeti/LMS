@@ -11,8 +11,10 @@ export const RButton = recipe({
     fontVariationSettings: `'wght' ${FONT_VARIATIONS.NORMAL}`,
     position: "relative",
     transition: "background 150ms ease, color 150ms ease",
+    lineHeight: 1,
     ":focus-visible": {
-      boxShadow: `0 0 0 1px ${themes.tokens.colors.background}, 0 0 0 2px ${themes.tokens.colors.font.main}`,
+      outline: "none",
+      boxShadow: `0 0 0 1px ${themes.tokens.colors.background_surface}, 0 0 0 2px ${themes.tokens.colors.text_primary}`,
     },
     ":disabled": {
       cursor: "not-allowed",
@@ -52,16 +54,16 @@ export const RButton = recipe({
       },
       ghost: {
         background: "transparent",
-        color: themes.tokens.colors.font.main,
+        color: themes.tokens.colors.text_primary,
         "@media": {
           "(hover)": {
             ":hover": {
-              color: themes.tokens.colors.font.alpha70,
+              color: themes.tokens.colors.text_hint,
             },
           },
         },
         ":active": {
-          color: themes.tokens.colors.font.alpha70,
+          color: themes.tokens.colors.text_hint,
         },
       },
     },
