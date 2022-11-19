@@ -25,7 +25,7 @@ export const StyledContent = style({
   minWidth: 220,
   maxHeight: 400,
   overflowY: "auto",
-  backgroundColor: themes.tokens.colors.background_medium,
+  backgroundColor: themes.tokens.colors.background_canvas,
   borderRadius: 6,
   padding: 5,
   boxShadow:

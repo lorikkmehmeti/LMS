@@ -26,14 +26,15 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  const setter = (c: ColorMode) => {
-    setColorMode(c);
+  const theme = colorMode === "light" ? themes.light : themes.dark;
 
-    document.documentElement.classList.remove("light", "dark");
-    document.documentElement.classList.add(c);
+  const setter = (c: ColorMode) => {
+    const theme = c === "light" ? themes.light : themes.dark;
+    setColorMode(c);
+    document.documentElement.className = "";
+    document.documentElement.classList.add(c, theme, base.class);
   };
 
-  const theme = colorMode === "light" ? themes.light : themes.dark;
   return (
     <ColorModeContext.Provider
       value={{
