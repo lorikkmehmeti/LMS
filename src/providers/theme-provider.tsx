@@ -22,7 +22,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     document.documentElement.classList.remove("light", "dark");
     if (colorMode) {
-      document.documentElement.classList.add(colorMode);
+      document.documentElement.classList.add(colorMode, `${theme}`, base.class);
     }
   }, []);
 

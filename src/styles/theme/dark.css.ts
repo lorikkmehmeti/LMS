@@ -1,4 +1,4 @@
-import { createTheme } from "@vanilla-extract/css";
+import { createGlobalTheme, createTheme } from "@vanilla-extract/css";
 import { colorTokens } from "./colormode.css";
 import { createShade, createTint } from "../utilities/utility-functions";
 
@@ -8,25 +8,25 @@ const TOKENS = {
 };
 
 const DARK = {
-  background_surface: "black",
-  background_light: "black",
-  background_medium: "black",
-  background_contrast: "black",
-  background_canvas: "black",
-  text_contrast: "black",
-  text_primary: "white",
-  text_secondary: "white",
-  text_hint: "white",
-  text_disabled: "black",
-  divider: "black",
-  backdrop: "black",
-  border_light: "black",
-  border_dark: "black",
-  border_disabled: "black",
-  success: "black",
-  error: "black",
-  warning: "black",
-  info: "black",
+  background_surface: "#171819",
+  background_light: "#1D1E1F",
+  background_medium: "#373739",
+  background_contrast: "#505053",
+  background_canvas: "#0C0C0D",
+  text_contrast: "#171819",
+  text_primary: "#E5E5E6",
+  text_secondary: "#828387",
+  text_hint: "#505053",
+  text_disabled: "#525252",
+  divider: "rgba(255, 255, 255, 0.04)",
+  backdrop: "rgba(5, 5, 6, 0.4)",
+  border_light: "#2C2C2E",
+  border_dark: "#373739",
+  border_disabled: "#262626",
+  success: "#6ECB90",
+  error: "#EF4444",
+  warning: "#F5D90A",
+  info: "#60A5FA",
   primary: {
     "100": createTint(0.5, TOKENS.primary),
     "200": createTint(0.4, TOKENS.primary),

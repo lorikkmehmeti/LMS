@@ -1,4 +1,5 @@
 import { keyframes, style } from "@vanilla-extract/css";
+import { themes } from "../../styles/theme";
 
 const slideUpAndFade = keyframes({
   "0%": { opacity: 0, transform: "translateY(2px)" },
@@ -24,7 +25,7 @@ export const StyledContent = style({
   minWidth: 220,
   maxHeight: 400,
   overflowY: "auto",
-  backgroundColor: "white",
+  backgroundColor: themes.tokens.colors.background_medium,
   borderRadius: 6,
   padding: 5,
   boxShadow:

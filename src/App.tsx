@@ -23,10 +23,12 @@ import { StyledToggle } from "./App.css";
 import { DepartamentLine } from "./utils/Icons";
 import { Radio, RadioGroup } from "./components/Radio/Radio";
 import "./App.css.ts";
+import { themes } from "./styles/theme";
 
 export const Toggle = TogglePrimitive.Root;
 
 export default function App() {
+  console.log(themes);
   return (
     <ThemeProvider>
       <div
@@ -85,15 +87,7 @@ export default function App() {
                 </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                {[
-                  "Drafts",
-                  "Snoozed",
-                  "Created by me",
-                  "Completed by me",
-                  "Subscribed by me",
-
-                  "Settings",
-                ].map((el) => (
+                {["Drafts", "Snoozed", "Settings"].map((el) => (
                   <DropdownMenuItem key={el + Date.now()}>
                     {el}
                   </DropdownMenuItem>

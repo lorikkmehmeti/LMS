@@ -1,10 +1,11 @@
 import { style, styleVariants } from "@vanilla-extract/css";
+import { themes } from "../../styles/theme";
 
 export const StyledItemBase = style({
   all: "unset",
   fontSize: 13,
   lineHeight: 1,
-  color: "black",
+  color: themes.tokens.colors.text_primary,
   borderRadius: 3,
   display: "flex",
   alignItems: "center",
@@ -29,7 +30,6 @@ export const StyledItem = styleVariants({
 
         "&[data-highlighted]": {
           backgroundColor: "rgba(0,0,0, .1)",
-          color: "black",
         },
       },
     },

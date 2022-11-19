@@ -7,7 +7,6 @@ export const StyledSubTrigger = style([
     selectors: {
       '&[data-state="open"]': {
         backgroundColor: "rgba(0,0,0, .1)",
-        color: "black",
       },
     },
   },
@@ -33,7 +32,6 @@ export const RightSlotStyles = style({
   paddingLeft: 20,
   color: "mauve",
   selectors: {
-    "[data-highlighted] > &": { color: "black" },
     "[data-disabled] &": { color: "gray", opacity: 0.7, cursor: "not-allowed" },
   },
 });
