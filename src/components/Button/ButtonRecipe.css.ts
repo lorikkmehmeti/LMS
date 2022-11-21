@@ -4,6 +4,7 @@ import { FONT_VARIATIONS } from "../../styles/theme/tokens";
 
 export const RButton = recipe({
   base: {
+    appearance: "none",
     whiteSpace: "nowrap",
     borderRadius: 6,
     border: "none",
@@ -58,7 +59,7 @@ export const RButton = recipe({
         "@media": {
           "(hover)": {
             ":hover": {
-              color: themes.tokens.colors.text_hint,
+              color: themes.tokens.colors.text_secondary,
             },
           },
         },

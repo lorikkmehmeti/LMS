@@ -14,6 +14,15 @@ export interface ButtonProps
   ref?: React.Ref<HTMLButtonElement>;
 }
 
+export interface IconButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  size?: "large" | "medium" | "small";
+  color?: "primary" | "secondary" | "ghost";
+  disabled?: boolean;
+  space?: "inline" | "block" | "top" | "bottom" | "right" | "left" | "none";
+}
+
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     const { colorMode, setColorMode } = useContext(ColorModeContext);
@@ -37,3 +46,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 Button.displayName = "Button";
+
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+  (props, ref) => {
+    return <></>;
+  }
+);
+
+IconButton.displayName = "IconButton";

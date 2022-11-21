@@ -29,7 +29,7 @@ export const StyledItem = styleVariants({
         },
 
         "&[data-highlighted]": {
-          backgroundColor: "rgba(0,0,0, .1)",
+          backgroundColor: themes.tokens.colors.background_light,
         },
       },
     },

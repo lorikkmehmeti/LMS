@@ -24,11 +24,11 @@ import { DepartamentLine } from "./utils/Icons";
 import { Radio, RadioGroup } from "./components/Radio/Radio";
 import "./App.css.ts";
 import { themes } from "./styles/theme";
+import { Checkbox } from "./components/Checkbox/Checkbox";
 
 export const Toggle = TogglePrimitive.Root;
 
 export default function App() {
-  console.log(themes);
   return (
     <ThemeProvider>
       <div
@@ -38,7 +38,7 @@ export default function App() {
             desktop: 6,
             computer: 5,
             tablet: 3,
-            mobile: 1,
+            mobile: 3,
           },
         })}`}
       >
@@ -52,21 +52,32 @@ export default function App() {
           <Button size="small" color="primary">
             Sign in
           </Button>
-          <Text key={1} as="h1">
-            Heading Texts
+          <Text key={1} as="h4">
+            Lead Officer Senior Construction
           </Text>
+          <Text as="title">
+            Odio omnis ea et. Consectetur at nostrum a. Ipsa quia rerum.
+          </Text>
+          <br /> <br />
           <div>
+            <Checkbox value={"ASP"} label={"Marathi"} />
+            <Checkbox value={"QPL"} label={"English"} />
+            <Checkbox value={"GM"} label={"Italian"} />
             <RadioGroup
               defaultValue={"Lorik Mehmeti"}
               aria-label="View density"
             >
-              {["Publish", "Unpublish", "Set the publish date"].map((el) => (
+              {[
+                `Bachelor of Computer Science`,
+                "Bachelor of Design",
+                "Associate Degree in Communications",
+              ].map((el) => (
                 <Radio key={el} label={el} value={el} />
               ))}
             </RadioGroup>
           </div>
           <div style={{ display: "flex", gap: 10 }}>
-            <Avatar name="Lorik Mehmeti" image={IMAGES[23]} size={13} />
+            <Avatar name="Lorik Mehmeti" image={IMAGES[3]} size={13} />
             <Avatar
               name="Eni Salihu"
               image={
@@ -87,23 +98,11 @@ export default function App() {
                 </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                {["Drafts", "Snoozed", "Settings"].map((el) => (
+                {["Status", "Assignee", "Priority", "Labels"].map((el) => (
                   <DropdownMenuItem key={el + Date.now()}>
                     {el}
                   </DropdownMenuItem>
                 ))}
-                <DropdownMenuItem
-                  variant="label"
-                  key={"344444" + Date.now()}
-                  onClick={(event) => event.preventDefault()}
-                >
-                  <label htmlFor="">Hmmmm</label>
-                  <RightSlot>
-                    <Toggle aria-label="Toggle italic" className={StyledToggle}>
-                      <DepartamentLine />
-                    </Toggle>
-                  </RightSlot>
-                </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuCheckboxItem checked={true}>
                   <DropdownMenuItemIndicator>
@@ -119,7 +118,7 @@ export default function App() {
                       ></path>
                     </svg>
                   </DropdownMenuItemIndicator>
-                  Show Bookmarks
+                  Add Sub Issue
                 </DropdownMenuCheckboxItem>
                 <DropdownMenuCheckboxItem checked={false}>
                   <DropdownMenuItemIndicator>
@@ -130,7 +129,7 @@ export default function App() {
                       ></path>
                     </svg>
                   </DropdownMenuItemIndicator>
-                  Show children
+                  Set due date
                 </DropdownMenuCheckboxItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuSub>
@@ -147,18 +146,20 @@ export default function App() {
                       </div>
                     </RightSlot>
                   </DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent sticky="partial">
+                  <DropdownMenuSubContent sticky="partial" sideOffset={0}>
                     {[
                       "Your profile",
                       "Your repositories",
-                      "Your codespaces",
-                      "Your projects",
-                      "Your stars",
                       "Your gists",
+                      "7.5",
+                      "Point Guard",
+                      "MM7842",
+                      "Tails",
+                      "Super Saiyan Blue Goku",
                     ].map((el, index) => (
                       <DropdownMenuItem
                         key={Date.now() + el}
-                        disabled={[3, 4, 5].includes(index)}
+                        disabled={[2, 3, 4].includes(index)}
                       >
                         {el}
                       </DropdownMenuItem>

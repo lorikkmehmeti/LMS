@@ -3,7 +3,6 @@ import React, { createContext, useEffect, useState } from "react";
 import { base, themes } from "../styles/theme";
 
 type ColorMode = "dark" | "light";
-export const themeKey = "vanilla-theme-pref";
 
 interface ColorModeContextValues {
   colorMode: ColorMode | null;
@@ -17,10 +16,10 @@ export const ColorModeContext = createContext<ColorModeContextValues>({
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [colorMode, setColorMode] = useState<ColorMode | null>("dark");
+  const [colorMode, setColorMode] = useState<ColorMode | null>("light");
 
   useEffect(() => {
-    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.className = "";
     if (colorMode) {
       document.documentElement.classList.add(colorMode, `${theme}`, base.class);
     }
@@ -29,6 +28,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const theme = colorMode === "light" ? themes.light : themes.dark;
 
   const setter = (c: ColorMode) => {
+    console.log(c, "hmmm");
     const theme = c === "light" ? themes.light : themes.dark;
     setColorMode(c);
     document.documentElement.className = "";

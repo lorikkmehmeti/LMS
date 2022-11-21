@@ -25,14 +25,17 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   color: "secondary",
+  children: "Secondary button",
 };
 
 export const Large = Template.bind({});
 Large.args = {
   size: "large",
+  children: "Large button",
 };
 
 export const Small = Template.bind({});
 Small.args = {
   size: "small",
+  children: "Small button",
 };

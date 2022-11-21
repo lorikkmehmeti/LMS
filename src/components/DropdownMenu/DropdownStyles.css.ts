@@ -1,12 +1,13 @@
 import { style } from "@vanilla-extract/css";
 import { StyledItem } from "./DropdownMenuStyles";
+import { themes } from "../../styles/theme";
 
 export const StyledSubTrigger = style([
   StyledItem["primary"],
   {
     selectors: {
       '&[data-state="open"]': {
-        backgroundColor: "rgba(0,0,0, .1)",
+        backgroundColor: themes.tokens.colors.background_light,
       },
     },
   },

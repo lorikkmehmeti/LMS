@@ -3,23 +3,23 @@ import { themes } from "../../styles/theme";
 
 export const StyledRadioItem = style({
   all: "unset",
-  background: "#171819",
+  background: themes.tokens.colors.background_surface,
   width: 20,
   height: 20,
   borderRadius: "100%",
-  border: `1px solid #2C2C2E`,
+  border: `1px solid ${themes.tokens.colors.border_dark}`,
   transition: "background 150ms ease",
   zIndex: 2,
   position: "relative",
   selectors: {
     "&:not(disabled):not([data-state=checked]):hover": {
-      background: `inherit`,
+      background: themes.tokens.colors.background_medium,
     },
     "&:focus-visible": { boxShadow: `0 0 0 2px #2C2C2E` },
     "&:not([disabled])[data-state=checked]": {
-      background: "#148CF5", // TODO change to a variable
+      background: themes.tokens.colors.primary[500],
       boxShadow: `none`,
-      borderColor: "#148cf5", // TODO change to a variable
+      borderColor: themes.tokens.colors.primary[500],
     },
     "&[data-state=checked][data-disabled][disabled]": {
       background: `rgba(255, 255, 255, 0.06)`, // TODO change to a variable or not

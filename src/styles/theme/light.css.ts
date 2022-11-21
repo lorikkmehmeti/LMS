@@ -43,9 +43,9 @@ const LIGHT = {
     "300": createTint(0.3, TOKENS.secondary),
     "400": createTint(0.2, TOKENS.secondary),
     "500": TOKENS.secondary, // Main Color
-    "600": createShade(0.2, TOKENS.secondary),
-    "700": createShade(0.3, TOKENS.secondary),
-    "800": createShade(0.4, TOKENS.secondary),
+    "600": createShade(0.1, TOKENS.secondary),
+    "700": createShade(0.2, TOKENS.secondary),
+    "800": createShade(0.3, TOKENS.secondary),
   },
 };
 

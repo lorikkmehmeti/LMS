@@ -1,5 +1,16 @@
 import { SVGProps } from "react";
 
+export function Checkmark(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 12 12" {...props}>
+      <path
+        fill="currentColor"
+        d="M9.854 3.146a.5.5 0 0 1 0 .708l-4.5 4.5a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L5 7.293l4.146-4.147a.5.5 0 0 1 .708 0Z"
+      ></path>
+    </svg>
+  );
+}
+
 export function Bell(props: SVGProps<SVGSVGElement>) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 36 36" {...props}>

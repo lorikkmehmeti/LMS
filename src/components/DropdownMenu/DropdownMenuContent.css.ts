@@ -28,8 +28,8 @@ export const StyledContent = style({
   backgroundColor: themes.tokens.colors.background_canvas,
   borderRadius: 6,
   padding: 5,
-  boxShadow:
-    "0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2)",
+  border: `1px solid ${themes.tokens.colors.border_dark}`,
+  boxShadow: `rgb(0 0 0 / 9%) 0px 3px 12px`,
   "@media": {
     "(prefers-reduced-motion: no-preference)": {
       animationDuration: "400ms",

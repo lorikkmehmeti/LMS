@@ -16,26 +16,17 @@ export interface RadioInputInterface extends RadioGroupItemProps {
   label?: string;
 }
 
-// export const RadioItem = ({value, id, disabled} : {value: string, id: string, disabled: boolean}) => {
-//     return (
-//         <RadioItemRoot value={value}
-//                        className={StyledRadioItem}
-//                        disabled={false}></RadioItemRoot>
-//         //     <label className={StyledRadioLabel} htmlFor="r1">
-//         //       Do not check
-//         //     </label>
-//     )
-// }
-
-export const Radio = forwardRef<RadioGroupItemProps, RadioInputInterface>(
-  (props) => {
+/* type any is used because Radix UI converts radio input to button */
+export const Radio = forwardRef<RadioGroupItemProps | any, RadioInputInterface>(
+  (props, ref) => {
     const id = useId();
     const { label, value } = props;
     return (
       <div style={{ display: "flex", marginBottom: 5 * 2 }}>
         <RadioItem
-          value={value || ""}
+          value={value}
           id={id}
+          ref={ref}
           className={StyledRadioItem}
           disabled={false}
         >
