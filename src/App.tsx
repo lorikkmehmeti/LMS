@@ -19,11 +19,9 @@ import {
   RightSlot,
 } from "./components/DropdownMenu/DropdownMenu";
 import * as TogglePrimitive from "@radix-ui/react-toggle";
-import { StyledToggle } from "./App.css";
-import { DepartamentLine } from "./utils/Icons";
+import { Bookmark, DepartmentLine, Shadow } from "./utils/Icons";
 import { Radio, RadioGroup } from "./components/Radio/Radio";
 import "./App.css.ts";
-import { themes } from "./styles/theme";
 import { Checkbox } from "./components/Checkbox/Checkbox";
 
 export const Toggle = TogglePrimitive.Root;
@@ -46,11 +44,15 @@ export default function App() {
           <Button size="small" color="ghost">
             Learn more
           </Button>
-          <Button size="small" color="secondary">
+          <Button
+            size="small"
+            color="secondary"
+            attributes={{ "data-label": "23", "data-hmm": "34" }}
+          >
             Next step
           </Button>
-          <Button size="small" color="primary">
-            Sign in
+          <Button size="small" color="primary" starticon={<DepartmentLine />}>
+            Instant Delivery
           </Button>
           <Text key={1} as="h4">
             Lead Officer Senior Construction
@@ -91,11 +93,9 @@ export default function App() {
           <div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <div style={{ display: "inline-flex", margin: "5px 150px" }}>
-                  <Button size="small" color="secondary">
-                    Save the draft
-                  </Button>
-                </div>
+                <Button size="small" color="secondary">
+                  Save the draft
+                </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 {["Status", "Assignee", "Priority", "Labels"].map((el) => (

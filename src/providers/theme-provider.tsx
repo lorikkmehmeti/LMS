@@ -11,12 +11,13 @@ interface ColorModeContextValues {
 
 export const ColorModeContext = createContext<ColorModeContextValues>({
   colorMode: null,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setColorMode: () => {},
+  setColorMode: () => {
+    return;
+  },
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [colorMode, setColorMode] = useState<ColorMode | null>("light");
+  const [colorMode, setColorMode] = useState<ColorMode | null>("dark");
 
   useEffect(() => {
     document.documentElement.className = "";

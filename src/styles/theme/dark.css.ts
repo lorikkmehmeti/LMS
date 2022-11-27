@@ -33,9 +33,9 @@ const DARK = {
     "300": createTint(0.3, TOKENS.primary),
     "400": createTint(0.2, TOKENS.primary),
     "500": TOKENS.primary, // Main Color
-    "600": createShade(0.4, TOKENS.primary),
-    "700": createShade(0.3, TOKENS.primary),
-    "800": createShade(0.2, TOKENS.primary),
+    "600": createShade(0.1, TOKENS.primary),
+    "700": createShade(0.2, TOKENS.primary),
+    "800": createShade(0.3, TOKENS.primary),
   },
   secondary: {
     "100": createTint(0.5, TOKENS.secondary),

@@ -117,9 +117,3 @@ export const DropdownMenuSeparator = () => (
 export const RightSlot = ({ children }: { children: React.ReactNode }) => {
   return <div className={RightSlotStyles}>{children}</div>;
 };
-
-// function DropdownMenuDemo(props: any) {
-//   return <div></div>;
-// }
-
-// export default DropdownMenu;

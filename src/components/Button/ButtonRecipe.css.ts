@@ -13,9 +13,15 @@ export const RButton = recipe({
     position: "relative",
     transition: "background 150ms ease, color 150ms ease",
     lineHeight: 1,
+    verticalAlign: "middle",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "14px",
     ":focus-visible": {
-      outline: "none",
-      boxShadow: `0 0 0 1px ${themes.tokens.colors.background_surface}, 0 0 0 2px ${themes.tokens.colors.text_primary}`,
+      outline: `1px solid ${themes.tokens.colors.text_primary}`,
+      outlineOffset: "1px",
+      // boxShadow: `0 0 0 1px ${themes.tokens.colors.background_canvas}, 0 0 0 2px ${themes.tokens.colors.text_primary}`,
     },
     ":disabled": {
       cursor: "not-allowed",
@@ -27,7 +33,7 @@ export const RButton = recipe({
     color: {
       primary: {
         background: themes.tokens.colors.primary[500],
-        color: "#fff",
+        color: "#fff", // TODO create tokens that are similar and assign to theme contract (white, black)
         "@media": {
           "(hover)": {
             ":hover": {
@@ -56,6 +62,7 @@ export const RButton = recipe({
       ghost: {
         background: "transparent",
         color: themes.tokens.colors.text_primary,
+        boxShadow: `0px 2px 4px rgba(0,0,0,.12)`,
         "@media": {
           "(hover)": {
             ":hover": {
@@ -69,9 +76,9 @@ export const RButton = recipe({
       },
     },
     size: {
-      small: { paddingInline: 12, height: 30 },
-      medium: { paddingInline: 16, height: 36 },
-      large: { paddingInline: 42, height: 42 },
+      small: { paddingInline: 12, height: 30, fontSize: 13 },
+      medium: { paddingInline: 16, height: 36, fontSize: 14 },
+      large: { paddingInline: 42, height: 42, fontSize: 16 },
     },
     rounded: {
       true: { borderRadius: 999 },

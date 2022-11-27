@@ -23,7 +23,10 @@ export const Checkbox = forwardRef<CheckboxProps | any, CheckboxInputInterface>(
     const _id = useId();
     return (
       <React.Fragment>
-        <div key={_id} style={{ display: "flex", marginBottom: 5 * 2 }}>
+        <div
+          key={_id}
+          style={{ display: "flex", marginBottom: 5 * 2, alignItems: "center" }}
+        >
           <CheckboxItem
             value={value}
             ref={ref}
