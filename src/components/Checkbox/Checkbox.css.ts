@@ -17,14 +17,14 @@ export const StyledCheckbox = style({
   boxShadow: `0 0 0 1px ${themes.tokens.colors.border_dark}`,
   width: 20,
   height: 20,
-  borderRadius: 4,
+  borderRadius: 334,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   selectors: {
     "&:not([disabled])[data-state=checked]": {
       background: themes.tokens.colors.primary["500"],
-      color: "#fff" || themes.tokens.colors.text_contrast,
+      color: themes.tokens.colors.background_canvas,
       boxShadow: `0 0 0 1px ${themes.tokens.colors.primary["500"]}`,
     },
     "&:not(disabled):not(:focus):not([data-state=checked]):hover": {

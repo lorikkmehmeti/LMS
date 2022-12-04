@@ -19,14 +19,79 @@ import {
   RightSlot,
 } from "./components/DropdownMenu/DropdownMenu";
 import * as TogglePrimitive from "@radix-ui/react-toggle";
-import { Bookmark, DepartmentLine, Shadow } from "./utils/Icons";
+import {
+  Follow,
+  Hashtag,
+  JavascriptLogo,
+  MongoLogo,
+  PythonLogo,
+  ReactLogo,
+  WebstormLogo,
+} from "./utils/Icons";
 import { Radio, RadioGroup } from "./components/Radio/Radio";
 import "./App.css.ts";
 import { Checkbox } from "./components/Checkbox/Checkbox";
+import { Badge } from "./components/Badge/Badge";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "./components/Tooltip/Tooltip";
 
 export const Toggle = TogglePrimitive.Root;
 
 export default function App() {
+  const [checkboxes, setCheckboxes] = React.useState([
+    "React",
+    "Angular",
+    "VueJS",
+    "Svelte",
+  ]);
+  const [radios, setRadios] = React.useState([
+    "Belgium",
+    "Germany",
+    "France",
+    "Portugal",
+  ]);
+  const [badges, setBadges] = React.useState([
+    "React",
+    "Python",
+    "Mongo",
+    "Javascript",
+    "Webstorm",
+    "Programming Language",
+    "QA Automation",
+    "Processing",
+  ]);
+  const url = "http://192.168.0.17:3000";
+
+  const logos: any = {
+    react: <ReactLogo />,
+    python: <PythonLogo />,
+    mongo: <MongoLogo />,
+    webstorm: <WebstormLogo />,
+    javascript: <JavascriptLogo />,
+    default: <Hashtag />,
+  };
+
+  React.useEffect(() => {
+    fetch(`${url}/music?length=5`)
+      .then((data) => data.json())
+      .then((res) => setCheckboxes(res));
+  }, []);
+
+  React.useEffect(() => {
+    fetch(`${url}/files?length=3`)
+      .then((data) => data.json())
+      .then((res) => setRadios(res));
+  }, []);
+
+  React.useEffect(() => {
+    fetch(`${url}/currency?length=5`)
+      .then((data) => data.json())
+      .then((res) => setBadges(res));
+  }, []);
+
   return (
     <ThemeProvider>
       <div
@@ -40,19 +105,40 @@ export default function App() {
           },
         })}`}
       >
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          {badges.length > 0
+            ? badges.map((el) => (
+                <Badge
+                  key={el}
+                  title={el}
+                  size={"small"}
+                  logo={logos[el.toLowerCase()]}
+                />
+              ))
+            : null}
+
+          <Tooltip>
+            <TooltipTrigger>
+              <Badge title="Nia Archives" size={"small"} />
+            </TooltipTrigger>
+            <TooltipContent>
+              Aut esse magnam non nemo accusamus ut. Quos consequatur expedita
+              voluptate iure perspiciatis. Dolorem dolorem corporis nihil quia
+              quisquam tempora. Et quo porro dolor eligendi. Recusandae saepe
+              facere consequatur id numquam nisi.
+            </TooltipContent>
+          </Tooltip>
+        </div>
+
         <div className={""}>
           <Button size="small" color="ghost">
             Learn more
           </Button>
-          <Button
-            size="small"
-            color="secondary"
-            attributes={{ "data-label": "23", "data-hmm": "34" }}
-          >
+          <Button size="small" color="secondary">
             Next step
           </Button>
-          <Button size="small" color="primary" starticon={<DepartmentLine />}>
-            Instant Delivery
+          <Button size="small" color="primary" starticon={<Follow />}>
+            Follow
           </Button>
           <Text key={1} as="h4">
             Lead Officer Senior Construction
@@ -62,21 +148,19 @@ export default function App() {
           </Text>
           <br /> <br />
           <div>
-            <Checkbox value={"ASP"} label={"Marathi"} />
-            <Checkbox value={"QPL"} label={"English"} />
-            <Checkbox value={"GM"} label={"Italian"} />
-            <RadioGroup
-              defaultValue={"Lorik Mehmeti"}
-              aria-label="View density"
-            >
-              {[
-                `Bachelor of Computer Science`,
-                "Bachelor of Design",
-                "Associate Degree in Communications",
-              ].map((el) => (
-                <Radio key={el} label={el} value={el} />
-              ))}
-            </RadioGroup>
+            {checkboxes.length > 0
+              ? checkboxes.map((el) => {
+                  return <Checkbox key={el} value={el} label={el} />;
+                })
+              : null}
+
+            {radios.length > 0 ? (
+              <RadioGroup defaultValue={radios[1]} aria-label="View density">
+                {radios.map((el) => {
+                  return <Radio key={el} label={el} value={el} />;
+                })}
+              </RadioGroup>
+            ) : null}
           </div>
           <div style={{ display: "flex", gap: 10 }}>
             <Avatar name="Lorik Mehmeti" image={IMAGES[3]} size={13} />
@@ -90,7 +174,7 @@ export default function App() {
             <Avatar name="Valmir Haxholli" size={9} />
             <Avatar name="Tame Impala" size={9} />
           </div>
-          <div>
+          <div style={{ marginBlock: 5 }}>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button size="small" color="secondary">

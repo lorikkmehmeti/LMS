@@ -26,6 +26,15 @@ export const FONTS = {
   monospace: "Menlo, monospace",
 };
 
+/*
+/* @param 0: 12px.
+/* @param 1: 14px.
+/* @param 2: 16px.
+/* @param 3: 20px.
+/* @param 4: 24px.
+/* @param 5: 32px.
+/* @param 6: 48px.
+ */
 export const FONT_SIZE_PROPERTIES = {
   0: "12px",
   1: "14px",
@@ -34,8 +43,6 @@ export const FONT_SIZE_PROPERTIES = {
   4: "24px",
   5: "32px",
   6: "48px",
-  7: "64px",
-  8: "96px",
 };
 
 export const FONT_VARIATIONS: {

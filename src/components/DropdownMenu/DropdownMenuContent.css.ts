@@ -22,6 +22,7 @@ const slideLeftAndFade = keyframes({
 });
 
 export const StyledContent = style({
+  zIndex: 333,
   minWidth: 220,
   maxHeight: 400,
   overflowY: "auto",

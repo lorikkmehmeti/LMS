@@ -34,7 +34,7 @@ export const Checkbox = forwardRef<CheckboxProps | any, CheckboxInputInterface>(
             className={StyledCheckbox}
           >
             <CheckboxIndicator>
-              <Checkmark width="20px" height="20px" />
+              <Checkmark width="16px" height="16px" />
             </CheckboxIndicator>
           </CheckboxItem>
           {label ? (

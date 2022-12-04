@@ -62,7 +62,6 @@ export const RButton = recipe({
       ghost: {
         background: "transparent",
         color: themes.tokens.colors.text_primary,
-        boxShadow: `0px 2px 4px rgba(0,0,0,.12)`,
         "@media": {
           "(hover)": {
             ":hover": {

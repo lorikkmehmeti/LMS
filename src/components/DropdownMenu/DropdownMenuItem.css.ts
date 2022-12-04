@@ -1,5 +1,6 @@
 import { style, styleVariants } from "@vanilla-extract/css";
 import { themes } from "../../styles/theme";
+import { FONT_VARIATIONS } from "../../styles/theme/tokens";
 
 export const StyledItemBase = style({
   all: "unset",
@@ -14,6 +15,8 @@ export const StyledItemBase = style({
   position: "relative",
   paddingLeft: 25,
   userSelect: "none",
+  fontWeight: FONT_VARIATIONS.NORMAL,
+  fontVariationSettings: `'wght' ${FONT_VARIATIONS.NORMAL}`,
 });
 
 export const StyledItem = styleVariants({

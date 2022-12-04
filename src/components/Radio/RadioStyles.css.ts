@@ -1,5 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { themes } from "../../styles/theme";
+import { FONT_VARIATIONS } from "../../styles/theme/tokens";
 
 export const StyledRadioItem = style({
   all: "unset",
@@ -63,6 +64,8 @@ export const StyledRadioIndicator = style({
 
 export const StyledRadioLabel = style({
   color: themes.tokens.colors.text_primary,
+  fontWeight: FONT_VARIATIONS.MEDIUM,
+  fontVariationSettings: `'wght' ${FONT_VARIATIONS.MEDIUM}`,
   fontSize: 15,
   lineHeight: "20px",
   userSelect: "none",
